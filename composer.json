@@ -1,0 +1,75 @@
+{
+    "name": "ugarit/fortify",
+    "description": "Backend controllers and scaffolding for Ugarit authentication.",
+    "keywords": [
+        "ugarit",
+        "auth"
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/ugarit/fortify/issues",
+        "source": "https://github.com/ugarit/fortify"
+    },
+    "authors": [
+        {
+            "name": "Muath R Abu Ouda",
+            "email": "muathrabuouda@hotmail.com",
+            "role": "Vision Leader of Ugarit"
+        },
+        {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com",
+            "role": "Original Creator & Primary Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "bacon/bacon-qr-code": "^3.0",
+        "heritage/console": "^1.00.00",
+        "heritage/support": "^1.00.00",
+        "ugarit/passkeys": "^1.00.00",
+        "pragmarx/google2fa": "^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.15|^10.8|^11.0",
+        "phpstan/phpstan": "^2.2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ugarit\\Fortify\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ugarit\\Fortify\\Tests\\": "tests/",
+            "App\\": "workbench/app/",
+            "Database\\Factories\\": "workbench/database/factories/"
+        },
+        "classmap": [
+            "stubs/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "ugarit": {
+            "providers": [
+                "Ugarit\\Fortify\\FortifyServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": "@prepare",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "lint": "@php vendor/bin/phpstan analyse",
+        "test": "@php vendor/bin/phpunit"
+    },
+    "version": "1.00.00"
+}

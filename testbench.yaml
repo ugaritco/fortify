@@ -1,0 +1,5 @@
+providers:
+  - Ugarit\Fortify\FortifyServiceProvider
+
+migrations:
+  - database/migrations
